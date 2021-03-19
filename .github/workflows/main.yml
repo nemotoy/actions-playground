@@ -1,0 +1,15 @@
+name: main
+on:
+  push:
+    paths:
+      - '**main.yml'
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, world"
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Bye"
