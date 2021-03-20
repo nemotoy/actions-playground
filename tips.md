@@ -4,7 +4,7 @@
 - [x] 実行コマンドを共通化したい
 - [x] ローカルリポジトリ内でアクションを作成し、ワークフローのジョブ内で利用したい
 - [ ] ジョブ・アクション間で値を共有したい
-- [ ] feature/main間のイベント制御したい
+- [x] ブランチ名でジョブ実行可否を制御したい
 - [ ] ActionsのYAMLにLintをかけたい
 - [x] [ローカルでActionsをテストしたい](./local.md)
 
@@ -50,3 +50,9 @@ jobs:
         with:
           input-id: 'value' 
 ```
+
+## ブランチ名でジョブ実行可否を制御したい
+
+組み込み関数の *contains*, *startsWith/endsWith* と、 githubコンテキストの *github.ref* で制御できる。
+
+- [GitHub Actions のコンテキストおよび式の構文 - GitHub Docs](https://docs.github.com/ja/actions/reference/context-and-expression-syntax-for-github-actions#functions)
