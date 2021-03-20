@@ -1,0 +1,16 @@
+name: Check if contains main in branch name
+on:
+  push:
+    paths:
+      - '**check_branch_name.yml'
+jobs:
+  contains-main:
+    if: ${{ !contains(github.ref, 'main') }} 
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "does not contains 'main'."
+  startwith-main:
+    if: ${{ !startsWith(github.ref, 'refs/heads/main') }} 
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "does not startwith 'main'."
