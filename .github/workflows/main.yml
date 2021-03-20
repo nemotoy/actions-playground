@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: foo
-        uses: .github/actions/greet
+        uses: ./.github/actions/greet # format {org}/{repo}[/path]
         with:
           who-to-greet: 'Bob'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
