@@ -3,8 +3,9 @@
 - [x] ジョブ間の依存関係を表現したい
 - [x] 実行コマンドを共通化したい
 - [x] ローカルリポジトリ内でアクションを作成し、ワークフローのジョブ内で利用したい
-- [ ] ジョブ・アクション間で値を共有したい
+- [x] ジョブ・アクション間で値を共有したい
 - [x] ブランチ名でジョブ実行可否を制御したい
+- [x] 環境変数を設定・参照したい
 - [ ] ActionsのYAMLにLintをかけたい
 - [x] [ローカルでActionsをテストしたい](./local.md)
 
@@ -56,3 +57,11 @@ jobs:
 組み込み関数の *contains*, *startsWith/endsWith* と、 githubコンテキストの *github.ref* で制御できる。
 
 - [GitHub Actions のコンテキストおよび式の構文 - GitHub Docs](https://docs.github.com/ja/actions/reference/context-and-expression-syntax-for-github-actions#functions)
+
+## 環境変数を設定・参照したい
+
+1. ジョブ全体設定（ *env* ）
+[GitHub Actionsのワークフロー構文 - GitHub Docs](https://docs.github.com/ja/actions/reference/workflow-syntax-for-github-actions#)
+
+2. アクション間設定（ *echo "{name}={value}" >> $GITHUB_ENV* ）
+[GitHub Actionsのワークフローコマンド - GitHub Docs](https://docs.github.com/ja/actions/reference/workflow-commands-for-github-actions#setting-an-environment-variable) ※ 環境変数作成・更新と参照は一緒のアクションではできない。
