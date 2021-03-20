@@ -1,8 +1,8 @@
 # Tips
 
 - [x] ジョブ間の依存関係を表現したい
-- [ ] 実行コマンドを共通化したい
-- [ ] 1リポジトリ内でアクションを作成し、ワークフローのジョブ内で利用したい
+- [x] 実行コマンドを共通化したい
+- [x] ローカルリポジトリ内でアクションを作成し、ワークフローのジョブ内で利用したい
 - [ ] ジョブ・アクション間で値を共有したい
 - [ ] feature/main間のイベント制御したい
 
@@ -26,10 +26,25 @@ jobs:
 
 https://docs.github.com/ja/actions/creating-actions/creating-a-composite-run-steps-action
 
-## 1リポジトリ内でアクションを作成し、ワークフローのジョブ内で利用したい
+## ローカルリポジトリでアクションを作成し、ワークフローのジョブ内で利用したい
 
 > アクション、ワークフロー、アプリケーションコードを 1 つのリポジトリで組み合わせる予定の場合、アクションは .github ディレクトリに保存することをお勧めします。 たとえば、.github/actions/action-aや.github/actions/action-bに保存します。
 
 上にある通り、利用できる。
 
 - [アクションについて - GitHub Docs](https://docs.github.com/ja/actions/creating-actions/about-actions#choosing-a-location-for-your-action)
+
+ローカルにアクションを書いて使う場合、 *uses* のパスに注意。
+
+```yml:workflow.yml
+# workflow
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: foo
+        uses: ./.github/actions/greet # format {org}/{repo}[/path]
+        with:
+          input-id: 'value' 
+```
