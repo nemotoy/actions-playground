@@ -8,8 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello, world"
+      - run: echo $(pwd)
   job2:
     needs: job1
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - id: foo
+        uses: .github/actions/greet
+        with:
+          who-to-greet: 'Bob'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
       - run: echo "Bye"

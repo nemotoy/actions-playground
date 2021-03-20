@@ -1,0 +1,19 @@
+name: Greet
+description: greet and response
+inputs:
+  who-to-greet: # 必須。文字列型。
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+outputs:
+  random-number: # 必須。文字列型。
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }} # steps.<action_id>.outpus.<parameter_key>
+runs:
+  using: "composite" # 複合実行アクションの場合は composite
+  steps:
+    - run: echo Hello ${{ inputs.who-to-greet }}.
+      shell: bash
+    - id: random-number-generator
+      run: echo "::set-output name=random-id::$(echo $RANDOM)" # 出力パラメータ形式 ::set-output name={name}::{value}
+      shell: bash
