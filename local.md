@@ -17,6 +17,7 @@ $ act -n -j <job_id/job_name>
 $ act -j <job_name> -s MY_SECRET=SECRET_VALUE
 
 # あるイベントトリガーのジョブ実行
+$ act push
 ```
 
 ---
