@@ -8,6 +8,7 @@
 - [x] 環境変数を設定・参照したい
 - [ ] ActionsのYAMLにLintをかけたい
 - [x] [ローカルでActionsをテストしたい](./local.md)
+- [x] タイムアウトをジョブ全体で同じ値を設定したい
 
 ## ジョブ間の依存関係を表現したい
 
@@ -65,3 +66,22 @@ jobs:
 
 2. アクション間設定（ *echo "{name}={value}" >> $GITHUB_ENV* ）
 [GitHub Actionsのワークフローコマンド - GitHub Docs](https://docs.github.com/ja/actions/reference/workflow-commands-for-github-actions#setting-an-environment-variable) ※ 環境変数作成・更新と参照は一緒のアクションではできない。
+
+## タイムアウトをジョブ全体で同じ値を設定したい
+
+job毎に設定するのは面倒なので、ジョブ全体で一律に設定したいが、サポートされていないらしい。
+
+```yml
+name: xxx
+on: push
+defaults:
+  timeout-minutes: 0.5 # 30s
+jobs:
+
+# error message
+# Unexpected value 'timeout-minutes'
+```
+
+### ref
+
+- [Cannot set default.timeout-minutes - Code to Cloud / GitHub Actions - GitHub Support Community](https://github.community/t/cannot-set-default-timeout-minutes/118164)
