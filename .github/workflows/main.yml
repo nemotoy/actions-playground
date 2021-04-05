@@ -22,3 +22,6 @@ jobs:
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
       - run: echo "Bye"
+      - name: test if state
+        if: github.ref == 'refs/heads/main'
+        run: echo 'is main branch'
