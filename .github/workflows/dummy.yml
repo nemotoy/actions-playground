@@ -9,4 +9,4 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello, dummy"
+      - run: echo "Hello, dummy!"
