@@ -1,0 +1,12 @@
+name: dummy
+on:
+  push:
+    branches:
+      - dummy
+    paths:
+      - 'dummy**'
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, dummy"
