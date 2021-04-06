@@ -5,6 +5,7 @@ on:
       - dummy
     paths:
       - 'dummy**'
+      - 'dummy2**'
 jobs:
   job1:
     runs-on: ubuntu-latest
