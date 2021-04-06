@@ -85,3 +85,15 @@ jobs:
 ### ref
 
 - [Cannot set default.timeout-minutes - Code to Cloud / GitHub Actions - GitHub Support Community](https://github.community/t/cannot-set-default-timeout-minutes/118164)
+
+## パスとブランチ名でイベントを制御したい
+
+```yml
+# ブランチ main へのPushイベントで、パス ./main に変更がある場合にジョブを実行する。
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'main'
+```
