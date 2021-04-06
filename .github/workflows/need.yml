@@ -1,0 +1,19 @@
+name: need array
+on:
+  push:
+    paths:
+      - '**need.yml'
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, world"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, job2"
+  job3:
+    runs-on: ubuntu-latest
+    needs: [job1, job2]
+    steps:
+      - run: echo "Hello, job3"
