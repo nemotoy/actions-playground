@@ -10,10 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello, dummy!"
-  job3:
+  check:
     runs-on: ubuntu-latest
     needs: job1
+    if: github.ref != 'refs/heads/master'
     steps:
-      - name: check
-        if: github.ref != 'refs/heads/master'
+      - run: echo "execute job3"
+  job3:
+    runs-on: ubuntu-latest
+    needs: check
+    steps:
       - run: echo "Hello, job3!"
