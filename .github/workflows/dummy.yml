@@ -1,0 +1,24 @@
+name: dummy
+on:
+  push:
+    branches:
+      - dummy
+    paths:
+      - 'dummy**'
+      - 'dummy2**'
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, dummy!"
+  check:
+    runs-on: ubuntu-latest
+    needs: job1
+    if: github.ref != 'refs/heads/master'
+    steps:
+      - run: echo "execute job3"
+  job3:
+    runs-on: ubuntu-latest
+    needs: check
+    steps:
+      - run: echo "Hello, job3!"
