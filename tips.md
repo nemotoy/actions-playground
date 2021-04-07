@@ -30,6 +30,8 @@ jobs:
 
 https://docs.github.com/ja/actions/creating-actions/creating-a-composite-run-steps-action
 
+[GitHub Actionsのメタデータ構文 - GitHub Docs](https://docs.github.com/ja/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-run-steps-actions) より、 *uses* は使えないので、Actionsは使えない。
+
 ## ローカルリポジトリでアクションを作成し、ワークフローのジョブ内で利用したい
 
 > アクション、ワークフロー、アプリケーションコードを 1 つのリポジトリで組み合わせる予定の場合、アクションは .github ディレクトリに保存することをお勧めします。 たとえば、.github/actions/action-aや.github/actions/action-bに保存します。
