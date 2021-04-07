@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - dummy
+      - 'dummy/**'
     paths:
       - 'dummy**'
       - 'dummy2**'
