@@ -9,6 +9,7 @@
 - [ ] ActionsのYAMLにLintをかけたい
 - [x] [ローカルでActionsをテストしたい](./local.md)
 - [x] タイムアウトをジョブ全体で同じ値を設定したい
+- [ ] tagのpushをトリガーに *connventional commits* 形式の *Releases* を作りたい
 
 ## ジョブ間の依存関係を表現したい
 
