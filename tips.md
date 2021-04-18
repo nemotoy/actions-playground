@@ -100,3 +100,13 @@ on:
     paths:
       - 'main'
 ```
+
+## tagのpushをトリガーに *connventional commits* 形式の *Releases* を作りたい
+
+[actions/create-release: An Action to create releases via the GitHub Release API](https://github.com/actions/create-release) を使えば *Releases* は作成できる。問題は、 *body* に渡す要素を作成するステップ。
+
+- 前回タグ間のコミットを収集する
+- connventional commits の prefix 毎に振り分ける
+- bodyに書き込む用の形式にする
+
+[mathieudutour/github-tag-action: A Github Action to automatically bump and tag master, on merge, with the latest SemVer formatted version. Works on any platform.](https://github.com/mathieudutour/github-tag-action) を使えば、実現可能。
