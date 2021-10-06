@@ -14,6 +14,7 @@ jobs:
     timeout-minutes: 0.5
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
       - uses: actions/checkout@v2
       - id: foo
         uses: ./.github/actions/greet # format {org}/{repo}[/path]
