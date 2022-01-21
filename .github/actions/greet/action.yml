@@ -14,6 +14,7 @@ runs:
   steps:
     - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
+    - uses: ./.github/actions/a/b
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)" # 出力パラメータ形式 ::set-output name={name}::{value}
       shell: bash

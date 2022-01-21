@@ -1,8 +1,7 @@
-name: main
+name: main test
 on:
-  push:
-    paths:
-      - '**main.yml'
+  push
+
 jobs:
   job1:
     runs-on: ubuntu-latest
