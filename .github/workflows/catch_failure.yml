@@ -26,7 +26,10 @@ jobs:
       - name: Print
         run: |
           echo url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          echo ${{ toJSON(needs) }}
-          echo ${{ toJSON(github) }}
-          echo ${{ toJSON(job) }}
-          echo success: ${{ needs.success.result }} , failure: ${{ needs.failure.result }}
+          echo ${{ needs.success.result }}, ${{ needs.failure.result }}
+      - name: Dump GitHub context
+        run: echo '${{ toJSON(github) }}'
+      - name: Dump job context
+        run: echo '${{ toJSON(job) }}'
+      - name: Dump job needs
+        run: echo '${{ toJSON(needs) }}'
