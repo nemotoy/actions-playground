@@ -1,0 +1,29 @@
+name: catch job's failure
+on:
+  push
+
+jobs:
+  success:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+  failure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Checkout code
+        run: exit 1
+
+  status:
+    runs-on: ubuntu-latest
+    needs: [success, failure]
+    if: always() && (needs.success.result == 'failure' || needs.failure.result == 'failure') # can replace to ${{ failure() }}?
+    steps:
+      - name: Print
+        run: |
+          echo url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          echo results: ${{ needs.success.result }} , ${{ needs.failure.result }}
