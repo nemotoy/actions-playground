@@ -1,0 +1,9 @@
+name: test workflow
+on:
+  push:
+
+jobs:
+  success:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Hello.
