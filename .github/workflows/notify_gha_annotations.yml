@@ -15,4 +15,4 @@ jobs:
       - name: Install gh-annotation extension
         run: gh extension install swfz/gh-annotations
       - run: gh annotations --help
-      - run: gh annotations | jq
+      - run: gh annotations $GITHUB_REPOSITORY | jq
