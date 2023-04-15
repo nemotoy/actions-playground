@@ -1,0 +1,14 @@
+name: notify GHA annotations
+on:
+  push
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Print gh cli version
+        run: gh --version
