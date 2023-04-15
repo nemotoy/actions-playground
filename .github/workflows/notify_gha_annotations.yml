@@ -12,3 +12,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Print gh cli version
         run: gh --version
+      - name: Install gh-annotation extension
+        run: gh extension install swfz/gh-annotations
+      - run: gh annotations --help
+      - run: gh annotations | jq
